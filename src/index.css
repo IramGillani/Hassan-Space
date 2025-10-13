@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@layer base {
+  :root {
+    ---color-light-primary: #f9fafb;
+    ---color-light-secondry: ##e5e7eb;
+    ---color-dark-primary: #111827;
+    ---color-dark-secondry: #1f2937;
+  }
+}
+@layer base {
+  body {
+    background-color: var(---color-light-primary);
+    color: var(---color-dark-primary);
+  }
+  h5 {
+    @apply text-xl;
+  }
+  nav li {
+    @apply text-xs md:text-lg;
+  }
+}
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+ 
+}
