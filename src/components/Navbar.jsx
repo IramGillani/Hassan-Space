@@ -4,7 +4,9 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import HomePage from "./pages/HomePage";
-const Navbar = ({ onClose, toggleDark }) => {
+import { MoonIcon } from "@heroicons/react/16/solid";
+import { SunIcon } from "@heroicons/react/16/solid";
+const Navbar = ({ onClose, toggleDark, isDark }) => {
   return (
     <>
       <ul className="flex gap-4 ">
@@ -24,10 +26,14 @@ const Navbar = ({ onClose, toggleDark }) => {
         </Routes>
       </ul>
       <button
-        className="py-3 px-3 bg-red-200 cursor-pointer rounded-2xl"
+        className="py-3 px-3 bg-pink-500 cursor-pointer rounded-2xl"
         onClick={toggleDark}
       >
-        Toggle
+        {isDark ? (
+          <MoonIcon className="icon-mini" />
+        ) : (
+          <SunIcon className="icon-mini" />
+        )}
       </button>
     </>
   );

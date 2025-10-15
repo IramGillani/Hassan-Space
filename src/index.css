@@ -1,9 +1,11 @@
+/* archiveo black + pt serif */
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-@layer base {
+
+@layer theme {
   :root {
     ---color-light-primary: #f9fafb;
-    ---color-light-secondry: ##e5e7eb;
+    ---color-light-secondry: #e5e7eb;
     ---color-dark-primary: #111827;
     ---color-dark-secondry: #1f2937;
   }
@@ -24,5 +26,7 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
- 
+  .icon-mini {
+    @apply w-4 h-4 text-blue-500;
+  }
 }

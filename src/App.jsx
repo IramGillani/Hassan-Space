@@ -26,7 +26,7 @@ function App() {
       {" "}
       <main className={`w-full max-w-full h-dvh ${isDark ? "dark" : ""}`}>
         <nav
-          className={`flex items-center justify-between ${
+          className={`flex items-center justify-between bg-amber-900 dark:bg-amber-200 ${
             isMobileMenu ? " " : "flex-row"
           } px-5 py-4`}
         >
@@ -42,9 +42,13 @@ function App() {
           </div>
 
           {isMobileMenu ? (
-            <MiniNavbar isMenuOpen={isMenuOpen} toggleDark={toggleDark} />
+            <MiniNavbar
+              isMenuOpen={isMenuOpen}
+              toggleDark={toggleDark}
+              isDark={isDark}
+            />
           ) : (
-            <Navbar toggleDark={toggleDark} />
+            <Navbar toggleDark={toggleDark} isDark={isDark} />
           )}
         </nav>
       </main>

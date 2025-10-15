@@ -6,7 +6,10 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import HomePage from "./pages/HomePage";
-const MiniNavbar = ({ isMenuOpen, toggleDark }) => {
+import { MoonIcon } from "@heroicons/react/16/solid";
+import { SunIcon } from "@heroicons/react/16/solid";
+
+const MiniNavbar = ({ isMenuOpen, toggleDark, isDark }) => {
   return (
     <>
       {isMenuOpen && (
@@ -22,7 +25,11 @@ const MiniNavbar = ({ isMenuOpen, toggleDark }) => {
             className="py-3 px-3 bg-red-200 cursor-pointer rounded-2xl"
             onClick={toggleDark}
           >
-            Toggle
+            {isDark ? (
+              <MoonIcon className="icon-mini" />
+            ) : (
+              <SunIcon className="icon-mini" />
+            )}
           </button>
 
           <Routes>
@@ -35,6 +42,7 @@ const MiniNavbar = ({ isMenuOpen, toggleDark }) => {
           </Routes>
         </ul>
       )}
+      {/* using heroicons */}
     </>
   );
 };
