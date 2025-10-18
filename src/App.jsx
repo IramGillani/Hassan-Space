@@ -14,6 +14,7 @@ function App() {
   const [isMobileMenu, setIsMobileMenu] = useState(window.innerWidth < 768);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [activePage, setActivePage] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,18 +38,23 @@ function App() {
         }`}
       >
         <nav
-          className={`flex sticky items-center justify-between text-dark-primary dark:text-light-primary bg-light-primary dark:bg-dark-primary  ${
+          className={`flex sticky items-center justify-between text-dark-primary dark:text-light-primary bg-light-primary dark:bg-dark-primary ${
             isMobileMenu ? " " : "flex-row"
           } px-5 py-4`}
         >
-          <Link to="/">
+          <Link
+            to="/"
+            className={`${
+              isMenuOpen && isMobileMenu ? "hidden" : "block"
+            } hover:rotate-360 duration-[1.5s]`}
+          >
             <h2>Portfolio</h2>
           </Link>
 
           <div>
             <button
               onClick={() => setIsMenuOpen(() => !isMenuOpen)}
-              className={`${isMobileMenu ? "block" : "hidden"}`}
+              className={`${isMobileMenu && !isMenuOpen ? "block" : "hidden"}`}
             >
               <HiMiniBars3 />
             </button>
@@ -59,13 +65,25 @@ function App() {
               isMenuOpen={isMenuOpen}
               toggleDark={toggleDark}
               isDark={isDark}
+              setActivePage={setActivePage}
+              activePage={activePage}
+              setIsMenuOpen={setIsMenuOpen}
             />
           ) : (
-            <Navbar toggleDark={toggleDark} isDark={isDark} />
+            <Navbar
+              toggleDark={toggleDark}
+              isDark={isDark}
+              setActivePage={setActivePage}
+              activePage={activePage}
+            />
           )}
-          <div className="flex-center gap-4 ">
+          <div className="md:flex-center gap-4 hidden md:flex">
             {socialLinks.map(({ icon, href, id }) => (
-              <a key={id} href={href} className="hidden md:flex">
+              <a
+                key={id}
+                href={href}
+                className=" hover:text-[#3e3e50] dark:hover:text-[#717188] transition-all duration-[0.5s]"
+              >
                 {icon}
               </a>
             ))}
