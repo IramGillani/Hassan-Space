@@ -1,11 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { links } from "../data";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import ProjectsPage from "./pages/ProjectsPage";
-import HomePage from "./pages/HomePage";
 import { MoonIcon } from "@heroicons/react/16/solid";
 import { SunIcon } from "@heroicons/react/16/solid";
 
@@ -17,7 +12,7 @@ const MiniNavbar = ({ isMenuOpen, toggleDark, isDark }) => {
           {links.map(({ title, id }) => {
             return (
               <li key={id} className="dark:">
-                <Link to={`/${title}`}>{title}</Link>
+                <Link to={`/${title.toLowerCase()}`}>{title}</Link>
               </li>
             );
           })}
@@ -31,15 +26,6 @@ const MiniNavbar = ({ isMenuOpen, toggleDark, isDark }) => {
               <SunIcon className="icon-mini" />
             )}
           </button>
-
-          <Routes>
-            <Route path="/home-page" element={<HomePage />} />
-            <Route path="/about-page" element={<AboutPage />} />
-            <Route path="/contact-page" element={<ContactPage />} />
-            <Route path="/projects-page" element={<ProjectsPage />} />
-            {/* A catch-all route for unmatched paths */}
-            <Route path="*" element={<div>404 Not Found</div>} />
-          </Routes>
         </ul>
       )}
       {/* using heroicons */}

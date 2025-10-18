@@ -1,32 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* playfair display + open sans font */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 /* archiveo black + pt serif */
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@layer theme {
-  :root {
-    ---color-light-primary: #f9fafb;
-    ---color-light-secondry: #e5e7eb;
-    ---color-dark-primary: #111827;
-    ---color-dark-secondry: #1f2937;
-  }
+@theme {
+  --color-light-primary: #f9fafb;
+  --color-light-secondry: #e5e7eb;
+  --color-dark-primary: #111827;
+  --color-dark-secondry: #1f2937;
+  --font-archivoBold: "Archivo Black", sans-serif;
+  --font-archivo: "Archivo", sans-serif;
+  --font-playfairDisplay: "Playfair Display", serif;
+  --font-ptSerif: "PT Serif", serif;
+  --font-serif: "Open Sans", sans-serif;
 }
+
 @layer base {
   body {
-    background-color: var(---color-light-primary);
-    color: var(---color-dark-primary);
+    font-family: var(--font-archivo);
+
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
   }
-  h5 {
-    @apply text-xl;
-  }
+
   nav li {
     @apply text-xs md:text-lg;
   }
+
+  h2 {
+    @apply text-xl font-archivoBold;
+  }
+}
+@utility color-toggle {
+  @apply text-dark-primary bg-light-primary dark:text-light-primary dark:bg-dark-primary;
 }
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
   }
   .icon-mini {
-    @apply w-4 h-4 text-blue-500;
+    @apply w-3 h-3 text-light-primary dark:text-dark-primary;
   }
 }

@@ -1,32 +1,30 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { links } from "../data";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import ProjectsPage from "./pages/ProjectsPage";
-import HomePage from "./pages/HomePage";
+
 import { MoonIcon } from "@heroicons/react/16/solid";
 import { SunIcon } from "@heroicons/react/16/solid";
 const Navbar = ({ onClose, toggleDark, isDark }) => {
+  const [activePage, setActivePage] = useState(0);
   return (
     <>
       <ul className="flex gap-4 ">
-        {links.map(({ title, id }) => (
-          <li key={id} className="px-4 py-2 rounded-2xl">
-            <Link to={`/${title}`}>{title}</Link>
+        {links.map(({ title, id }, index) => (
+          <li
+            onClick={() => setActivePage(index)}
+            key={id}
+            className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-dark-primary/80 dark:hover:text-light-primary/80 transition-all duration-[0.5s] ${
+              activePage === index
+                ? "text-dark-primary dark:text-light-secondry font-semibold"
+                : "text-dark-primary dark:text-light-secondry"
+            }`}
+          >
+            <Link to={`/${title.toLowerCase()}`}>{title}</Link>
           </li>
         ))}
-
-        <Routes>
-          <Route path="/home-page" element={<HomePage />} />
-          <Route path="/about-page" element={<AboutPage />} />
-          <Route path="/contact-page" element={<ContactPage />} />
-          <Route path="/projects-page" element={<ProjectsPage />} />
-          {/* A catch-all route for unmatched paths */}
-          <Route path="*" element={<div>404 Not Found</div>} />
-        </Routes>
       </ul>
       <button
-        className="py-3 px-3 bg-pink-500 cursor-pointer rounded-2xl"
+        className="py-2 px-2 bg-dark-primary dark:bg-light-primary cursor-pointer rounded-full"
         onClick={toggleDark}
       >
         {isDark ? (
