@@ -38,10 +38,9 @@ function App() {
         }`}
       >
         <nav
-          className={`flex sticky items-center justify-between text-dark-primary dark:text-light-primary bg-light-primary dark:bg-dark-primary ${
-            isMobileMenu ? " " : "flex-row"
-          } px-5 py-4`}
+          className={`flex sticky color-toggle items-center justify-between px-5 py-4 z-[999]`}
         >
+          {/* fixed w-full */}
           <Link
             to="/"
             className={`${
@@ -49,6 +48,7 @@ function App() {
             } hover:rotate-360 duration-[1.5s]`}
           >
             <h2>Portfolio</h2>
+            {/* <img src="./p-icon.png" alt="" className="w-8 h-8" /> */}
           </Link>
 
           <div>
@@ -82,7 +82,7 @@ function App() {
               <a
                 key={id}
                 href={href}
-                className=" hover:text-[#3e3e50] dark:hover:text-[#717188] transition-all duration-[0.5s]"
+                className=" hover:text-[#3e3e50] dark:hover:text-[#717188] hover-style"
               >
                 {icon}
               </a>
@@ -99,6 +99,13 @@ function App() {
           <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
       </main>
+      {/* nav
+      header
+      about
+      technologies
+      projects
+      contact
+      footer */}
     </>
   );
 }

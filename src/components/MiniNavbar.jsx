@@ -22,7 +22,7 @@ const MiniNavbar = ({
               <li
                 key={id}
                 onClick={() => setActivePage(index)}
-                className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] transition-all duration-[0.5s] ${
+                className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] hover-style ${
                   activePage === index
                     ? "text-dark-primary dark:text-light-secondry font-bold"
                     : "text-dark-primary dark:text-light-secondry  "

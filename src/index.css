@@ -30,19 +30,79 @@
   nav li {
     @apply text-xs md:text-lg;
   }
-
+  h1 {
+    @apply text-5xl font-archivoBold;
+  }
   h2 {
     @apply text-xl font-archivoBold;
   }
 }
+
 @utility color-toggle {
   @apply text-dark-primary bg-light-primary dark:text-light-primary dark:bg-dark-primary;
 }
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+@utility hover-style {
+  @apply transition-all duration-[0.5s];
+}
+
 @layer utilities {
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
   .icon-mini {
     @apply w-4 h-4 text-light-primary dark:text-dark-primary;
+  }
+  .hero {
+    @apply relative h-dvh w-full overflow-hidden flex-center bg-dark-primary dark:bg-dark-secondry;
+  }
+
+  .hero video {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .heroText {
+    @apply relative z-10 text-center text-light-primary dark:text-light-secondry px-6;
+  }
+
+  .overlay {
+    @apply absolute inset-0 bg-black opacity-0 transition-all duration-700;
+  }
+  .attractive {
+    animation: color-flow 5s ease-in 1s infinite alternate both;
+  }
+  @keyframes color-flow {
+    0% {
+      border-bottom-color: rgb(172, 67, 199);
+      border-left-color: purple;
+      border-right-color: rgb(181, 59, 238);
+      border-top-color: rgb(136, 32, 139);
+    }
+    25% {
+      border-left-color: rgb(217, 171, 243);
+      border-right-color: rgb(197, 112, 197);
+      border-bottom-color: rgb(194, 93, 224);
+      border-top-color: rgb(167, 105, 163);
+    }
+    50% {
+      border-radius: 67% 33% 16% 84% / 57% 37% 63% 43%;
+      border-left-color: rgb(183, 68, 206);
+      border-right-color: purple;
+      border-bottom-color: rgb(161, 74, 219);
+      border-top-color: rgb(90, 16, 133);
+    }
+    75% {
+      border-radius: 77% 23% 61% 39% / 36% 61% 39% 64%;
+      border-bottom-color: rgb(182, 80, 207);
+      border-left-color: purple;
+      border-right-color: rgb(149, 24, 207);
+      border-top-color: rgb(160, 34, 139);
+    }
+    100% {
+      border-radius: 67% 33% 29% 71% / 39% 46% 54% 61%;
+      border-left-color: #74548a;
+      border-right-color: rgb(146, 61, 146);
+      border-bottom-color: rgb(150, 79, 160);
+      border-top-color: rgb(180, 24, 219);
+    }
   }
 }
