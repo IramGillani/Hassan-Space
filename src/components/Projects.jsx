@@ -1,7 +1,10 @@
-import React from "react";
-
 const Projects = () => {
-  return <div>Projects</div>;
+  return (
+    <section id="projects">
+      Projects <div>Let's talk for your new project</div>
+      <p>Let's work together</p>
+    </section>
+  );
 };
 
 export default Projects;

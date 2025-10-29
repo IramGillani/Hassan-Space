@@ -1,5 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import { links } from "../data";
 import { MoonIcon } from "@heroicons/react/16/solid";
 import { SunIcon } from "@heroicons/react/16/solid";
@@ -9,8 +10,8 @@ const MiniNavbar = ({
   isMenuOpen,
   toggleDark,
   isDark,
-  setActivePage,
-  activePage,
+  setActiveSection,
+  activeSection,
   setIsMenuOpen,
 }) => {
   return (
@@ -21,14 +22,21 @@ const MiniNavbar = ({
             return (
               <li
                 key={id}
-                onClick={() => setActivePage(index)}
+                onClick={() => setActiveSection(index)}
                 className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] hover-style ${
-                  activePage === index
+                  activeSection === index
                     ? "text-dark-primary dark:text-light-secondry font-bold"
                     : "text-dark-primary dark:text-light-secondry  "
                 }`}
               >
-                <Link to={`/${title.toLowerCase()}`}>{title}</Link>
+                <Link
+                  to={`${title.toLowerCase()}`}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                >
+                  {title}
+                </Link>
               </li>
             );
           })}
