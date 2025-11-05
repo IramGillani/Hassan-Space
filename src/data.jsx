@@ -13,3 +13,33 @@ export const socialLinks = [
   // { href: "https://www.instagram.com", icon: <FaInstagram /> },
   // { href: "https://www.linkedin.com", icon: <FaLinkedinIn /> },
 ];
+export const projectContent = [
+  {
+    title: "Cocktail Web",
+    desc: "A react+tailwind website using GSAP for amazing animations on scroll",
+    img: "./cocktail_scroll.gif",
+    alt: "A full view of cocktail webpage",
+    link: "https://github.com/IramGillani/Mojito.git",
+  },
+  {
+    title: "Cocktail Web",
+    desc: "A react+tailwind website using GSAP for amazing animations on scroll",
+    img: "./cocktail.png",
+    alt: "A full view of cocktail webpage",
+    link: "https://github.com/IramGillani/Mojito.git",
+  },
+  {
+    title: "Cocktail Web",
+    desc: "A react+tailwind website using GSAP for amazing animations on scroll",
+    img: "./cocktail.png",
+    alt: "A full view of cocktail webpage",
+    link: "https://github.com/IramGillani/Mojito.git",
+  },
+  {
+    title: "Cocktail Web",
+    desc: "A react+tailwind website using GSAP for amazing animations on scroll",
+    img: "./cocktail.png",
+    alt: "A full view of cocktail webpage",
+    link: "https://github.com/IramGillani/Mojito.git",
+  },
+];
