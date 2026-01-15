@@ -24,6 +24,7 @@ const Header = () => {
         // },
       },
     });
+    
 
     // Initial states
     gsap.set(".hero video", { opacity: 0, scale: 1.3 });

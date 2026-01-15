@@ -17,6 +17,7 @@ import { socialLinks } from "./data";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
+import Footer from "./components/Footer";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function App() {
@@ -136,6 +137,10 @@ function App() {
         <Projects id="projects" name="projects" />
 
         <Contact id="contact" name="contact" />
+        <Footer
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
       </main>
       {/* nav
       header

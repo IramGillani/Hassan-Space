@@ -39,10 +39,11 @@ const Projects = () => {
       {/* <div>Let's talk for your new project</div>
       <p>Let's work together</p> */}
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {projectContent.map(({ alt, img, desc, link, title }) => (
+        {projectContent.map(({ alt, img, desc, link, title }, index) => (
           <ProjectCard
             alt={alt}
             img={img}
+            key={index}
             code={link}
             description={desc}
             projectTitle={title}
