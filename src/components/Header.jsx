@@ -13,21 +13,15 @@ const Header = () => {
       scrollTrigger: {
         trigger: ".hero",
         start: "top top",
-        end: "+=200%", // 👈 makes it long (3x viewport height)
+        end: "bottom+=150% top",
         scrub: 1.5,
         pin: true,
         anticipatePin: 1,
-        toggleActions: "play none none none",
-        // onLeave: (self) => {
-        //   self.disable(); // 👈 disables ScrollTrigger once it’s done
-        //   self.animation.progress(1); // make sure it stays completed
-        // },
       },
     });
-    
 
     // Initial states
-    gsap.set(".hero video", { opacity: 0, scale: 1.3 });
+    gsap.set(".hero video", { opacity: 0.5, scale: 1.3 });
     gsap.set(".heroText", { opacity: 0, yPercent: 50 });
     gsap.set(".overlay", { opacity: 0 });
 
@@ -111,7 +105,7 @@ const Header = () => {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero bg-black">
         {/* Background Video */}
         <video
           ref={videoRef}

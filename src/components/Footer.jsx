@@ -5,7 +5,7 @@ const Footer = ({ activeSection, setActiveSection }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 px-6">
+    <footer className="bg-dark-primary text-light-primary py-10 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Top Section: Navigation Links */}
 
@@ -14,7 +14,7 @@ const Footer = ({ activeSection, setActiveSection }) => {
             <li
               onClick={() => setActiveSection(index)}
               key={id}
-              className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] hover-style ${
+              className={`px-4 py-2 rounded-2xl cursor-pointer text-light-secondry hover:text-[#6f6f72] dark:hover:text-[#717188] hover-style ${
                 activeSection === index
                   ? "text-dark-primary dark:text-light-secondry font-bold"
                   : "text-dark-primary dark:text-light-secondry  "
@@ -49,6 +49,7 @@ const Footer = ({ activeSection, setActiveSection }) => {
               <a
                 href={href}
                 key={id}
+                target="_blank"
                 className="hover:text-white transition-transform hover:-translate-y-1"
               >
                 {icon}

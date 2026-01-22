@@ -2,7 +2,9 @@ import { useActionState } from "react";
 import { sendEmail } from "../../actions/send-email";
 import { FiSend, FiLoader } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa";
-const Contact = () => {
+import SectionTitle from "./sectionTitle";
+
+const Contact = ({ name }) => {
   const initialState = {
     message: "",
     errors: {},
@@ -12,14 +14,17 @@ const Contact = () => {
     initialState
   );
   return (
-    <section id="contact" className="py-20 px-6 bg-slate-900/50">
+    <section
+      id={name}
+      name={name}
+      className=" py-20 px-6 bg-light-primary dark:bg-dark-primary"
+    >
       <div className="max-w-xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-display font-bold mb-12 text-center">
-          <span className="bg-gradient-to-r from-slate-100 to-slate-400 bg-clip-text text-transparent">
-            Get in Touch
-          </span>
-        </h2>
-        <div className="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
+        <SectionTitle
+          title="Get in Touch"
+          subtitle="Let's talk about your project"
+        />
+        <div className="bg-dark-primary p-8 rounded-2xl border border-dark-primary shadow-xl">
           <form action={formAction} className="space-y-6">
             <div>
               <label

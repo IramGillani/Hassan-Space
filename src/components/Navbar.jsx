@@ -17,7 +17,7 @@ const Navbar = ({
           <li
             onClick={() => setActiveSection(index)}
             key={id}
-            className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] hover-style ${
+            className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] cursor-pointer dark:hover:text-[#717188] hover-style ${
               activeSection === index
                 ? "text-dark-primary dark:text-light-secondry font-bold"
                 : "text-dark-primary dark:text-light-secondry  "

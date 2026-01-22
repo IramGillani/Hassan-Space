@@ -7,7 +7,11 @@ export const links = [
   { title: "Contact", id: 3 },
 ];
 export const socialLinks = [
-  { href: "https://www.facebook.com", icon: <FaFacebook size={24} />, id: 0 },
+  {
+    href: "https://www.facebook.com/profile.php?id=100058817174574",
+    icon: <FaFacebook size={24} />,
+    id: 0,
+  },
   { href: "https://www.github.com", icon: <FaGithub size={24} />, id: 1 },
   // { href: "https://www.twitter.com", icon: <FaTwitter /> },
   // { href: "https://www.instagram.com", icon: <FaInstagram /> },
@@ -15,14 +19,14 @@ export const socialLinks = [
 ];
 export const projectContent = [
   {
-    title: "Cocktail Web",
+    title: "Smart Portfolio",
     desc: " A Next js smart portfolio with three responsive sections and contact form functionality",
     img: "./Portfolio.png",
     alt: "A full view of portfolio webpage",
     link: "https://github.com/IramGillani/Mojito.git",
   },
   {
-    title: "Smart Portfolio",
+    title: "Cocktail Web",
     desc: "A react+tailwind website using GSAP for amazing animations on scroll",
     img: "./cocktail.png",
     alt: "A full view of cocktail webpage",

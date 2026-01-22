@@ -14,38 +14,14 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { Link } from "react-scroll";
 import { socialLinks } from "./data";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger, SplitText } from "gsap/all";
-import gsap from "gsap";
+
 import Footer from "./components/Footer";
-gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function App() {
   const [isMobileMenu, setIsMobileMenu] = useState(window.innerWidth < 768);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
-  const sectionRef = useRef();
-
-  useGSAP(() => {
-    const titleSplit = new SplitText(".section-title", {
-      type: "chars, words",
-    });
-
-    gsap.from(titleSplit.chars, {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%", // animate when section enters viewport
-        end: "bottom top",
-        scrub: false,
-      },
-      yPercent: 100,
-      opacity: 0,
-      duration: 1.8,
-      ease: "expo.out",
-      stagger: 0.06,
-    });
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -69,7 +45,7 @@ function App() {
         }`}
       >
         <nav
-          className={`flex sticky color-toggle items-center justify-between px-5 py-4 z-[999]`}
+          className={`flex sticky top-0 color-toggle items-center justify-between px-5 py-4 z-[999]`}
         >
           {/* fixed w-full */}
           <Link
@@ -132,7 +108,7 @@ function App() {
 
         <Header id="home" name="home" />
 
-        <About id="about" name="about" sectionRef={sectionRef} />
+        <About id="about" name="about" />
 
         <Projects id="projects" name="projects" />
 

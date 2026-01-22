@@ -23,7 +23,7 @@ const MiniNavbar = ({
               <li
                 key={id}
                 onClick={() => setActiveSection(index)}
-                className={`px-4 py-2 rounded-2xl text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] hover-style ${
+                className={`px-4 py-2 rounded-2xl cursor-pointer text-dark-secondry hover:text-[#02020f] dark:hover:text-[#717188] hover-style ${
                   activeSection === index
                     ? "text-dark-primary dark:text-light-secondry font-bold"
                     : "text-dark-primary dark:text-light-secondry  "
@@ -41,7 +41,7 @@ const MiniNavbar = ({
             );
           })}
           <button
-            className="py-2 px-2 bg-dark-primary dark:bg-light-primary cursor-pointer rounded-full flex justify-center items-center"
+            className="py-2 px-2 bg-dark-primary dark:bg-light-primary cursor-pointer rounded-full flex justify-center items-center w-16 h-8 ml-4"
             onClick={toggleDark}
           >
             {isDark ? (
