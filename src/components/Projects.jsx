@@ -55,7 +55,7 @@ const Projects = ({ name }) => {
           <img
             src={img}
             alt={alt}
-            className="w-full h-full object-cover rounded-b-xl hover: hover-style hover:opacity-70 cursor-pointer"
+            className="w-full h-full object-cover rounded-b-xl hover: hover-style hover:opacity-70 "
           />
         </div>
       </div>
@@ -63,7 +63,11 @@ const Projects = ({ name }) => {
   };
 
   return (
-    <section id="projects" name={name} className=" px-6">
+    <section
+      id="projects"
+      name={name}
+      className="px-6 py-20 bg-light-primary dark:bg-dark-primary transition-colors duration-500"
+    >
       <SectionTitle
         title="Projects"
         subtitle="Check recent projects and decide"

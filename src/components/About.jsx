@@ -8,66 +8,35 @@ const About = ({ name }) => {
       <section
         id={name}
         name={name}
-        className=" w-full min-h-screen  bg-white dark:bg-[#0d0d0d] px-6 pt-12"
+        className="w-full min-h-screen flex flex-col justify-center bg-light-primary dark:bg-dark-primary text-dark-primary dark:text-light-primary px-6 py-12"
       >
         <SectionTitle title="About Me" />
-        <div className="flex items-center justify-center">
-          <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 items-center">
-            {/* Left: Image with dark background */}
-            <div className="relative flex items-center justify-center">
-              {/* Dark background box */}
-              <div className="bg-dark-primary dark:bg-[#222] w-3/4 h-[400px] md:h-[500px] rounded-2xl"></div>
+        <div className="flex items-center justify-center mt-10">
+          <div className="max-w-4xl w-full flex flex-col items-center text-center space-y-8 py-4 px-6 about-text">
+            <h3 className="text-3xl font-bold mb-2">Who am I?</h3>
+            <p className="w-full tracking-wide text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+              I'm Hassan Ali, a remote web developer based in 
+              <b className="text-pink-600 dark:text-pink-400"> Pakistan</b>. 
+              My focus is fast execution and clean design that combine creativity with technical 
+              precision. Whether it's a personal brand, startup, or digital product, I can help 
+              bring your vision to life through code.
+            </p>
 
-              {/* Image overlapping (half out of dark background) */}
-              <img
-                src="/comp.jpg"
-                alt="About me"
-                id="about-img"
-                className="absolute w-full md:w-64 lg:w-80 rounded-2xl shadow-2xl object-cover
-              md:translate-x-1/3 md:translate-y-1 h-[400px]" // moves image half out to the right
-              />
-            </div>
-            <div className="space-y-5 py-4 px-6 flex flex-col justify-center about-text">
-              <h3 className="section-title">Who am I?</h3>
-              {/* MY Working Experiance */}
-              <p className="w-full tracking-wide   mb-4">
-                I'm Hassan Ali a remote web develpor based in
-                <b className="text-green-950 dark:text-green-500">
-                  {" "}
-                  Pakistan
-                </b>{" "}
-                . My focus is fast execution and clean design that combine
-                creativity with technical precision. Whether it’s a personal
-                brand, startup, or digital product, I can help bring your vision
-                to life through code. Take a look at my
-                <b>
-                  {" "}
-                  <Link
-                    to="projects"
-                    className="cursor-pointer border-b-black border-b-2"
-                  >
-                    Projects
-                  </Link>
-                </b>{" "}
-                to see my work in action — I’m confident you’ll enjoy what you
-                see. If you’re ready to bring your vision to life...
-              </p>
-
-              <button className="border-2 w-1/2 hover:border-light-primary dark:hover:border-dark-primary py-3 px-8 hover:bg-gray-700/50 hover-style tracking-wider">
-                <Link to="contact"> Let's Talk</Link>
-              </button>
-              <div className=" gap-4 hidden md:flex">
-                {socialLinks.map(({ icon, href, id }) => (
-                  <a
-                    key={id}
-                    href={href}
-                    target="_blank"
-                    className=" hover:text-[#3e3e50] dark:hover:text-[#717188] hover-style"
-                  >
-                    {icon}
-                  </a>
-                ))}
-              </div>
+            <button className="border-2 border-dark-primary dark:border-light-primary hover:border-pink-500 hover:text-pink-500 dark:hover:border-pink-400 dark:hover:text-pink-400 py-3 px-10 transition-colors duration-300 tracking-wider font-semibold rounded-lg mt-6">
+              <Link to="contact" smooth={true} duration={500}>Let's Talk</Link>
+            </button>
+            <div className="flex gap-6 mt-8">
+              {socialLinks.map(({ icon, href, id }) => (
+                <a
+                  key={id}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-600 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-400 transition-colors duration-300 transform hover:scale-110"
+                >
+                  {icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -1,21 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import { HiMiniBars3 } from "react-icons/hi2";
 import Navbar from "./components/Navbar";
 import MiniNavbar from "./components/MiniNavbar";
-// import { Routes, Route } from "react-router-dom";
-// import AboutPage from "./components/pages/AboutPage";
-// import ContactPage from "./components/pages/ContactPage";
-// import ProjectsPage from "./components/pages/ProjectsPage";
-// import { Link } from "react-router-dom";
-
-import Header from "./components/Header";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
 import { Link } from "react-scroll";
 import { socialLinks } from "./data";
 
-import Footer from "./components/Footer";
+// Eagerly loaded components above-the-fold
+import Header from "./components/Header";
+
+// Lazy loaded components below-the-fold for performance optimization
+const About = lazy(() => import("./components/About"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   const [isMobileMenu, setIsMobileMenu] = useState(window.innerWidth < 768);
@@ -24,12 +22,19 @@ function App() {
   const [activeSection, setActiveSection] = useState(0);
 
   useEffect(() => {
+    let timeoutId;
     const handleResize = () => {
-      setIsMobileMenu(window.innerWidth < 768);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobileMenu(window.innerWidth < 768);
+      }, 150);
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const toggleDark = () => {
@@ -38,32 +43,29 @@ function App() {
 
   return (
     <>
-      {" "}
       <main
         className={`w-full color-toggle max-w-full h-dvh scroll-smooth ${
           isDark ? "dark" : ""
         }`}
       >
         <nav
-          className={`flex sticky top-0 color-toggle items-center justify-between px-5 py-4 z-[999]`}
+          className={`flex sticky top-0 color-toggle items-center justify-between px-5 py-4 z-[999] shadow-sm`}
         >
-          {/* fixed w-full */}
           <Link
             to="/"
             className={`${
               isMenuOpen && isMobileMenu ? "hidden" : "block"
-            } hover:rotate-360 duration-[1.5s]`}
+            } hover:rotate-360 duration-[1.5s] cursor-pointer`}
           >
             <h2>Portfolio</h2>
-            {/* <img src="./p-icon.png" alt="" className="w-8 h-8" /> */}
           </Link>
 
           <div>
             <button
-              onClick={() => setIsMenuOpen(() => !isMenuOpen)}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`${isMobileMenu && !isMenuOpen ? "block" : "hidden"}`}
             >
-              <HiMiniBars3 />
+              <HiMiniBars3 size={24} />
             </button>
           </div>
 
@@ -89,42 +91,29 @@ function App() {
               <a
                 key={id}
                 href={href}
-                className=" hover:text-[#3e3e50] dark:hover:text-[#717188] hover-style"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-pink-600 dark:hover:text-pink-400 hover-style"
               >
                 {icon}
               </a>
             ))}
           </div>
         </nav>
-        {/* <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          {/* A catch-all route for unmatched paths */}
-        {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
-        {/* </Routes> */}
 
         <Header id="home" name="home" />
 
-        <About id="about" name="about" />
-
-        <Projects id="projects" name="projects" />
-
-        <Contact id="contact" name="contact" />
-        <Footer
-          activeSection={activeSection}
-          setActiveSection={setActiveSection}
-        />
+        <Suspense fallback={<div className="w-full h-[50vh] flex justify-center items-center text-xl font-semibold">Loading...</div>}>
+          <About id="about" name="about" />
+          <Skills id="skills" name="skills" />
+          <Projects id="projects" name="projects" />
+          <Contact id="contact" name="contact" />
+          <Footer
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
+        </Suspense>
       </main>
-      {/* nav
-      header
-      about
-      technologies
-      projects
-      contact
-      footer */}
     </>
   );
 }
