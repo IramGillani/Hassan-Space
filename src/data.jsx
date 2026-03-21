@@ -41,11 +41,11 @@ export const projectContent = [
     link: "https://github.com/IramGillani/Morent.git",
   },
   {
-    title: "Cocktail Web",
-    desc: "A react+tailwind website using GSAP for amazing animations on scroll",
-    img: "./cocktail.png",
-    alt: "A full view of cocktail webpage",
-    link: "https://github.com/IramGillani/Mojito.git",
+    title: "Trending Movies",
+    desc: "A fast, clean, and responsive single-page application for browsing the latest movies",
+    img: "./movie-trend.png",
+    alt: "A full view of final webpage",
+    link: "https://github.com/IramGillani/Latest-Movies",
   },
 ];
 
